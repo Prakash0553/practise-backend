@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { brands, categories } from "../models/Product.js";
+import {  authors, categories } from "../models/Product.js";
 import validate from 'express-joi-validation';
 
 export const validates = validate.createValidator({});
@@ -24,7 +24,8 @@ export const productValSchema = Joi.object({
   title: Joi.string().min(5).required(),
   description: Joi.string().required(),
   price: Joi.number().required(),
+  quantity: Joi.number().required(),
   rating: Joi.number(),
   category: Joi.string().valid(...categories).required(),
-  brand: Joi.string().valid(...brands).required()
+  author: Joi.string().valid(...authors).required()
 }).unknown(true);

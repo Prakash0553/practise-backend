@@ -13,8 +13,8 @@ const app= express();
 //connecting database
 
 mongoose.connect('mongodb+srv://prakashgiri20540811:nov261997@cluster0.f6ltgpj.mongodb.net/shopify').then((val) => {
-    app.listen(5000, ()=> {
-    console.log('database connected and server is running');
+  app.listen(5000, '0.0.0.0', () => {
+  console.log('Server running and database is connected on port 5000');
 });
 }).catch((err) => {
     console.log(err);

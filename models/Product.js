@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-export const categories = ["men's clothing", "women's clothing", "jewelery", "electronics"];
-export const brands = ["Apple", "Samsung", "Addidas", "Google", "Tanishq"];
+export const categories = ["Romance", "Comedy", "Horror", "Science Fiction", "Adventure", "Fantacy","Mystery"];
+export const authors = ["Emily Bronte", "Nikita Gill", "Paul Jarvis", "Lauren Asher", "Will Gompertz"];
 
 const productSchema= new mongoose.Schema({
 
@@ -25,14 +25,20 @@ const productSchema= new mongoose.Schema({
         type:Number,
         default: 0
     },
+    quantity: {
+    type: Number,
+    required: true,
+    min: 0,
+    default: 1,
+    },
     category: {
         type: String,
         enum: categories,
         required: true
     },
-    brand: {
+    author: {
         type: String,
-        enum: brands,
+        enum: authors,
         required: true
     },
 
